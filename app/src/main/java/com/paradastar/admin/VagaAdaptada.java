@@ -119,6 +119,11 @@ public class VagaAdaptada extends RecyclerView.Adapter<VagaAdaptada.VagaViewHold
                         return;
                     }
 
+                    if (!placa.matches("^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$")) {
+                        Toast.makeText(context, "Placa inválida! Use o formato ABC1234 ou ABC1D23.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     Map<String, Object> dados = new HashMap<>();
                     dados.put("status", "ocupada");
                     dados.put("placa", placa);
