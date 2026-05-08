@@ -1,17 +1,20 @@
 package com.paradastar.admin;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +30,7 @@ public class DashboardActivity extends AppCompatActivity {
     TextView tvDisponiveis, tvOcupadas, tvBloqueadas;
     RecyclerView recyclerVagas;
     Button btnAdicionarVaga;
+    ImageButton btnSair;
     DatabaseReference db;
     VagaAdaptada adaptada;
     List<Map<String, Object>> listaVagas = new ArrayList<>();
@@ -44,14 +48,22 @@ public class DashboardActivity extends AppCompatActivity {
         tvBloqueadas = findViewById(R.id.tvBloqueadas);
         recyclerVagas = findViewById(R.id.recyclerVagas);
         btnAdicionarVaga = findViewById(R.id.btnAdicionarVaga);
+        btnSair = findViewById(R.id.btnSair);
 
         adaptada = new VagaAdaptada(this, listaVagas, listaIds);
         recyclerVagas.setLayoutManager(new LinearLayoutManager(this));
         recyclerVagas.setAdapter(adaptada);
 
         btnAdicionarVaga.setOnClickListener(v -> adicionarVaga());
+        btnSair.setOnClickListener(v -> deslogar());
 
         carregarVagas();
+    }
+
+    void deslogar() {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
     void carregarVagas() {
