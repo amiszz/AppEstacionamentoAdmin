@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ParadaStar"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/roxo"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Painel do Gestor"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bg_input"
+        android:padding="14dp"
+        android:layout_marginBottom="12dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_input"
+        android:padding="14dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENTRAR"
+        android:backgroundTint="@color/roxo"
+        android:textColor="@color/white"
+        android:padding="14dp"/>
+
+</LinearLayout>
